@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="./css/bootstrap.min.css?1" rel="stylesheet">
+    <link href="./css/site.css?1" rel="stylesheet">
+    <link href="./css/default.css?1" rel="stylesheet">
+</head>
+
+<body class="device-preview-page ">
+    <div class="fork-me">
+        <a href="#github">
+            <img src="./img/fork-me.png" />
+        </a>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">LINE クリエイターズスタンプ　チェッカー</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div>
+            <!--/.navbar-collapse -->
+        </div>
+    </nav>
+    <div class="device-preview ionic ng-scope" ng-app="devicePreview">
+        <div id="drop" class="ionic-body active-preview">
+            <div class="bar bar-header bar-dark">
+                <button class="button button-icon icon ion-chevron-left">180</button>
+                <div class="h1 title">ぎゃおちゃん</div>
+                <button class="button button-icon icon ion-chevron-down"></button>
+            </div>
+            <div id="wrapper">
+                <!--<div class="answer-box">
+                    <div class="arrow-answer">
+                        ここに解答の文章
+                    </div>
+                </div>
+                <div id="disp"></div>-->
+            </div>
+            <div class="bar bar-footer">
+                <button class="button button-clear pull-right">Right</button>
+            </div>
+        </div>
+    </div>
+    <audio preload="auto">
+        <source src="mp3/line.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+
+    </script>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/default.js"></script>
+</body>
+
+</html>

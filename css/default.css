@@ -1,0 +1,133 @@
+.fork-me {
+    position: absolute;
+    z-index: 100000;
+    top: 0;
+    right: 0;
+}
+
+.ionic-body {
+    background: url(../img/line-background.jpg);
+}
+
+#wrapper {
+    margin: 80px auto auto auto;
+    width: 96%;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.question-box,
+.answer-box {
+    width: 260px;
+}
+
+.question-box {
+    float: right;
+}
+
+.answer-box {
+    float: left;
+}
+
+img.left-image,
+img.right-image {
+    width: 15%;
+    margin-right: 10px;
+}
+
+.left-image {
+    float: left;
+    width: 32px;
+    height: 32px;
+    background: #fff url('../img/gyao.png') 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+}
+
+img.right-image {
+    float: right;
+}
+
+p.name02,
+p.name {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+p.name02 {
+    text-align: right;
+}
+
+div.arrow-answer,
+div.arrow-question {
+    position: relative;
+    display: inline-block;
+    padding: 10px 14px 10px 14px;
+    max-width: 200px;
+    font-size: 13px;
+    margin-left: 3px;
+    margin-bottom: 25px;
+    color: #000;
+    border-radius: 20px;
+}
+
+div.arrow-question {
+    background: #fff;
+}
+
+div.arrow-answer {
+    background: #85e249;
+}
+
+div.arrow-answer:before,
+div.arrow-question:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    margin-left: 0;
+    display: block;
+    width: 30px;
+    height: 30px;
+    z-index: -1;
+}
+
+div.arrow-question:before {
+    left: -10px;
+    background: #fff;
+    border-radius: 0px 30px;
+}
+
+div.arrow-answer:before {
+    right: -10px;
+    background: #85e249;
+    border-radius: 30px 0;
+}
+
+div.arrow-answer:after,
+div.arrow-question:after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    margin-left: 0px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: none repeat scroll 0% 0% #6f92c0;
+    z-index: -1;
+}
+
+div.arrow-question:after {
+    left: -12px;
+    transform: rotate(10deg);
+    border-radius: 0px 30px;
+}
+
+div.arrow-answer:after {
+    right: -12px;
+    border-radius: 30px 0px;
+    transform: rotate(20deg);
+}
+
+.sticker {
+    float: right;
+}
