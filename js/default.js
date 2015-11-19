@@ -16,13 +16,14 @@
 
         return e;
     };
+    // 相手側の会話バルーンの作成
     var createPartnerBaloon = function(message) {
         var questionBox = createElement('div', {
             'class': 'question-box'
         });
         questionBox.append(createElement('div', {
             'class': 'arrow-question',
-            'text': message
+            'html': message
         }));
         return questionBox;
     }
@@ -38,14 +39,22 @@
 
         talk: function(message) {
             console.log(message);
+            //全体の箱を用意
+            var box = createElement('div', {
+                'class': 'box'
+            });
             // トーク画像を追加
-            this.windowElement.append(createElement('div', {
+            box.append(createElement('div', {
                 'class': 'left-image'
             }));
-            // 吹き出しを追加
-            this.windowElement.append(createPartnerBaloon(message));
+            // バルーンを生成
+            box.append(createPartnerBaloon(message));
+            // 追加
+            this.windowElement.append(box);
             // 通知音の再生
             this.audio.play();
+            // ボックスを表示
+            box.fadeIn(200);
         }
     }
 
@@ -57,8 +66,6 @@
 
     var onDrop = function(event) {
         var files = event.dataTransfer.files;
-        //var disp = document.getElementById("disp");
-        //disp.innerHTML = "";
 
         // ファイルの配列から1つずつファイルを選択
         for (var i = 0; i < files.length; i++) {
@@ -78,17 +85,16 @@
             if (f.type.match('image.*')) {
                 // ファイル読取が完了した際に呼ばれる処理
                 reader.onload = function(evt) {
-                        //var li = document.createElement('li');
-                        var img = document.createElement('img');
-                        img.setAttribute('class', 'sticker');
-                        img.src = evt.target.result;
-                        img.onload = function() {
-                                img.width = img.width / 2;
-                            }
-                            //disp.appendChild(img);
-
+                    var img = document.createElement('img');
+                    img.setAttribute('class', 'sticker');
+                    img.src = evt.target.result;
+                    img.onload = function() {
+                        img.width = img.width / 2;
                     }
-                    // readAsDataURLメソッドでファイルの内容を取得
+                    $('#wrapper').append(img);
+
+                };
+                // readAsDataURLメソッドでファイルの内容を取得
                 reader.readAsDataURL(f);
             }
 
@@ -102,19 +108,16 @@
     if (window.File) {
         document.getElementById("drop").addEventListener("drop", onDrop, false);
         talkWindow.talk('スタンピ画像をドラッグ&ドロップで貼り付けるでし!');
-
     } else {
-        window.alert("本ブラウザではFile APIが使えません");
-        talkWindow.talk('このブラウザだと動作しないでし!ここからダウンロードするでし!');
+        talkWindow.talk('このブラウザだと動作しないでし!<a href="https://www.google.co.jp/chrome/">ここから最新のブラウザをダウンロードするでし!</a>');
     }
 
 
 
     var drag = document.getElementById('drop');
     drag.ondragover = function(event) {
-        // ⑥ブラウザ上でファイルを展開する挙動を抑止
         event.preventDefault();
-    }
+    };
     $(document).ready(function() {
 
     });
