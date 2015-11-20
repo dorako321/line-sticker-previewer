@@ -15,6 +15,39 @@
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
 
+.body {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.description-img {
+    position: relative;
+    left: 370px;
+    top: -100px;
+    width: 300px;
+    height: 240px;
+    z-index: 10;
+    background: url('../img/description.png');
+    background-size: cover;
+}
+
+.local-img {
+    position: relative;
+    left: 640px;
+    top: 100px;
+    width: 400px;
+    height: 240px;
+    background: url('../img/local-windows.png');
+    background-size: cover;
+    padding : 90px 40px 40px 40px;
+}
+
+.local-img img {
+    width : 100px;
+}
+
 .box {
     display: none;
 }

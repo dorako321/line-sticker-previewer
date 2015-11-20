@@ -40,17 +40,33 @@
             <!--/.navbar-collapse -->
         </div>
     </nav>
-    <div class="device-preview ionic ng-scope" ng-app="devicePreview">
-        <div id="drop" class="ionic-body active-preview">
-            <div class="bar bar-header bar-dark">
-                <button class="button button-icon icon ion-chevron-left">180</button>
-                <div class="h1 title">ぎゃおちゃん</div>
-                <button class="button button-icon icon ion-chevron-down"></button>
+    <div class="body">
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-xs-6">
+                <div class="device-preview ionic ng-scope" ng-app="devicePreview">
+                    <div id="drop" class="ionic-body active-preview">
+                        <div class="bar bar-header bar-dark">
+                            <button class="button button-icon icon ion-chevron-left">180</button>
+                            <div class="h1 title">ぎゃおちゃん</div>
+                            <button class="button button-icon icon ion-chevron-down"></button>
+                        </div>
+                        <div id="wrapper">
+                        </div>
+                        <div class="bar bar-footer">
+                            <button class="button button-clear pull-right">Right</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="local-img">
+                    <img src="img/gyao/1.png" draggable="true" />
+                    <img src="img/gyao/28.png" draggable="true" />
+                    <img src="img/gyao/29.png" draggable="true" />
+                </div>
+                <div class="description-img">
+                </div>
+
             </div>
-            <div id="wrapper">
-            </div>
-            <div class="bar bar-footer">
-                <button class="button button-clear pull-right">Right</button>
+            <div class="col-sm-6 col-md-6 col-xs-6">
             </div>
         </div>
     </div>
@@ -58,7 +74,6 @@
         <source src="mp3/line.mp3" type="audio/mpeg">
     </audio>
     <script>
-
     </script>
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
