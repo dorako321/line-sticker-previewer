@@ -107,10 +107,7 @@
                     var img = document.createElement('img');
                     img.setAttribute('class', 'sticker');
                     img.src = event.target.result;
-                    img.onload = function() {
-                        img.width = img.width / 2;
-                    }
-                    $('#wrapper').append(img);
+                    createSelfSticker($(img));
                 };
                 // readAsDataURLメソッドでファイルの内容を取得
                 reader.readAsDataURL(f);
