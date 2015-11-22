@@ -3444,7 +3444,7 @@ a.list-group-item.active > .badge,
 
 .jumbotron {
   padding: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 0;
   font-size: 22.5px;
   font-weight: 200;
   line-height: 2.14286;
@@ -14155,7 +14155,7 @@ a {
 .footer {
   position: relative;
   z-index: 100;
-  padding: 20px 0 0 0;
+  padding: 0;
   background: #2b3442;
   color: #a4b3cd;
   text-align: center;

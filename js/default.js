@@ -29,8 +29,16 @@
         }
         // 自分側にスタンプを追加
     var createSelfSticker = function(element) {
-        $('#wrapper').append(element);
-        element.width(element.width() / 2)
+        var box = createElement('div', {
+            'class': 'self-box'
+        });
+        /*box.append(createElement('span', {
+            'class' : 'self-status',
+            'text' : '既読'
+        }));*/
+        box.append(element);
+        $('#wrapper').append(box);
+        element.width(element.width() / 2);
     };
     var TalkWindow = function() {
         this.windowElement;
@@ -136,6 +144,9 @@
         event.preventDefault();
     };
     $(document).ready(function() {
+        $('#reset').on('click', function(){
+            $('#wrapper').empty();
+        });
 
     });
 })();

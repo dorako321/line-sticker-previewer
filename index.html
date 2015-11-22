@@ -7,6 +7,7 @@
     <link href="./css/bootstrap.min.css?1" rel="stylesheet">
     <link href="./css/site.css?1" rel="stylesheet">
     <link href="./css/default.css?1" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
 <body class="device-preview-page ">
@@ -24,47 +25,41 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">LINE クリエイターズスタンプ　チェッカー</a>
+                <a class="navbar-brand" href="/">LINE クリエイターズスタンプ　プレビュー</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <form class="navbar-form navbar-right">
-                    <div class="form-group">
-                        <input type="text" placeholder="Email" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                    <button type="submit" class="btn btn-success">Sign in</button>
-                </form>
-            </div>
+            <!--<div id="navbar" class="navbar-collapse collapse">
+                <div class="navbar-form navbar-right">
+                    <button type="submit" class="btn"><i class="fa fa-github"></i></button>
+                    <button type="submit" class="btn"><i class="fa fa-github"></i></button>
+                </div>
+            </div>-->
             <!--/.navbar-collapse -->
         </div>
     </nav>
     <div class="body">
-        <div class="row">
+        <div class="row" style="height: 900px;">
             <div class="col-sm-6 col-md-6 col-xs-6">
                 <div class="device-preview ionic ng-scope" ng-app="devicePreview">
-                    <div id="drop" class="ionic-body active-preview">
+                    <div id="drop" class="ionic-body active-preview scroll-content">
                         <div class="bar bar-header bar-dark">
                             <button class="button button-icon icon ion-chevron-left">180</button>
                             <div class="h1 title">ぎゃおちゃん</div>
                             <button class="button button-icon icon ion-chevron-down"></button>
                         </div>
-                        <div id="wrapper">
+                        <div id="wrapper" class="scroll">
                         </div>
                         <div class="bar bar-footer">
-                            <button class="button button-clear pull-right">Right</button>
+                            <button id="reset" class="button button-clear pull-right">リセット</button>
                         </div>
                     </div>
                 </div>
                 <div class="local-img">
-                    <img class="sticker" src="img/gyao/1.png" draggable="true" />
+                    <img class="sticker" src="img/gyao/1.png" draggable="true" align="bottom" />
                     <img class="sticker" src="img/gyao/28.png" draggable="true" />
                     <img class="sticker" src="img/gyao/29.png" draggable="true" />
                 </div>
                 <div class="description-img">
                 </div>
-
             </div>
             <div class="col-sm-6 col-md-6 col-xs-6">
             </div>
@@ -72,7 +67,48 @@
         <div class="clear-box"></div>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-xs-12">
-
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3">
+                    <div class="card hovercard">
+                        <div class="cardheader">
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="img/yamada-d.jpg">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a target="_blank" href="http://yamada.daiji.ro/blog">YAMADA Daijiro</a>
+                            </div>
+                            <div class="desc">Curious developer</div>
+                            <div class="desc">Passionate designer</div>
+                            <div class="desc">Tech geek</div>
+                        </div>
+                        <div class="bottom">
+                            <a class="btn btn-info btn-sm btn-circle" href="https://twitter.com/dorako321">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm btn-circle" rel="publisher" href="https://plus.google.com/u/0/+DaijrouYamada/about">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a class="btn btn-primary btn-sm btn-circle" rel="publisher" href="https://www.facebook.com/dorako321">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="btn btn-default btn-sm btn-circle" rel="publisher" href="https://github.com/dorako321">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-sm-9">
+                    <div class="attention">
+                        <p>このサイトは非公式です。プレビュー結果について信頼性を保障するものではありません。詳しくは<a href="https://creator.line.me/ja/guideline/">クリエイターズスタンプの公式ガイドライン</a>をご参照ください。 </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
