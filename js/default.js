@@ -18,15 +18,20 @@
     };
     // 相手側の会話バルーンの作成
     var createPartnerBaloon = function(message) {
-        var questionBox = createElement('div', {
-            'class': 'question-box'
-        });
-        questionBox.append(createElement('div', {
-            'class': 'arrow-question',
-            'html': message
-        }));
-        return questionBox;
-    }
+            var questionBox = createElement('div', {
+                'class': 'question-box'
+            });
+            questionBox.append(createElement('div', {
+                'class': 'arrow-question',
+                'html': message
+            }));
+            return questionBox;
+        }
+        // 自分側にスタンプを追加
+    var createSelfSticker = function(element) {
+        $('#wrapper').append(element);
+        element.width(element.width() / 2)
+    };
     var TalkWindow = function() {
         this.windowElement;
         this.audio;
@@ -39,7 +44,7 @@
 
         talk: function(message) {
             console.log(message);
-            //全体の箱を用意
+            // 全体の箱を用意
             var box = createElement('div', {
                 'class': 'box'
             });
@@ -65,43 +70,58 @@
 
 
     var onDrop = function(event) {
-        var files = event.dataTransfer.files;
+        if (!event.dataTransfer) {
+            // データ転送機能が無いためエラー
+            return;
+        }
 
-        // ファイルの配列から1つずつファイルを選択
-        for (var i = 0; i < files.length; i++) {
-            var f = files[i];
-            // FileReaderオブジェクトの生成
-            var reader = new FileReader();
-            // 画像ファイルかテキストファイルかを判定
-            if (!f.type.match('image.*')) {
-                alert("画像ファイルとテキストファイル以外は表示できません。");
-                continue;
-            }
-            // エラー発生時の処理
-            reader.onerror = function(evt) {
-                    //disp.innerHTML = "読み取り時にエラーが発生しました。";
+        // サンプルスタンプょD&Dした場合の処理
+        var text = event.dataTransfer.getData('text/html');
+        if (!!text) {
+            var element = $(text);
+            createSelfSticker(element);
+            event.preventDefault();
+            return;
+        }
+
+        // ローカルからファイルを選択した場合の処理
+        var files = event.dataTransfer.files;
+        if (!!files) {
+            // ファイルの配列から1つずつファイルを選択
+            for (var i = 0; i < files.length; i++) {
+                var f = files[i];
+                // FileReaderオブジェクトの生成
+                var reader = new FileReader();
+                // 画像ファイルかテキストファイルかを判定
+                if (!f.type.match('image.*')) {
+                    talkWindow.talk('画像ファイル以外は表示できないでし!');
+                    console.log("画像ファイル以外は表示できません。");
+                    continue;
                 }
-                // ④画像ファイルの場合の処理
-            if (f.type.match('image.*')) {
+                // エラー発生時の処理
+                reader.onerror = function(event) {
+                    //disp.innerHTML = "読み取り時にエラーが発生しました。";
+                };
                 // ファイル読取が完了した際に呼ばれる処理
-                reader.onload = function(evt) {
+                reader.onload = function(event) {
                     var img = document.createElement('img');
                     img.setAttribute('class', 'sticker');
-                    img.src = evt.target.result;
+                    img.src = event.target.result;
                     img.onload = function() {
                         img.width = img.width / 2;
                     }
                     $('#wrapper').append(img);
-
                 };
                 // readAsDataURLメソッドでファイルの内容を取得
                 reader.readAsDataURL(f);
             }
-
+            event.preventDefault();
+            return;
         }
-        // ⑥ブラウザ上でファイルを展開する挙動を抑止
+
         event.preventDefault();
     }
+
 
 
 
