@@ -398,7 +398,7 @@ div.arrow-answer:after {
 }
 
 .card.hovercard .cardheader {
-    background: url("http://lorempixel.com/850/280/nature/4/");
+    background: url("../img/autumn.jpg");
     background-size: cover;
     height: 135px;
 }
@@ -461,7 +461,7 @@ div.arrow-answer:after {
 /* タイトル */
 
 .navbar-brand {
-    line-height: 40px;
+    line-height: 30px;
     font-size: 1.6em;
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 }
@@ -497,4 +497,10 @@ ul.share-buttons li{
 
 ul.share-buttons img{
   width: 32px;
+}
+
+/* ヘッダナビ */
+
+.navbar-inverse{
+    background-color: #2b3442;
 }
