@@ -111,7 +111,14 @@
         var text = event.dataTransfer.getData('text/html');
         if (!!text) {
             var element = $(text);
-            if (element.attr('class') != 'sticker') {
+            // for OSX + ChromeではgetDataで取得できる項目が異なるので補正
+            if(element.length != 1){
+                element = $(element[element.length -1]);
+            }
+            // クラス名の取得
+            var className = element.attr('class');
+            
+            if (className != 'sticker') {
                 talkWindow.talk('この画像はサンプルじゃないでし!ぎゃおのスタンプをドラッグするでし!');
                 event.preventDefault();
                 return;
