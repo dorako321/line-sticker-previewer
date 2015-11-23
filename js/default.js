@@ -40,30 +40,23 @@
         this.windowElement;
         this.audio;
     };
-
-    var _getBinValue = function(bin, i, size) {
-        var v = 0;
-        for (var j = 0; j < size; j++) {
-            var b = bin.charCodeAt(i + j);
-            v = (v << 8) + b;
-        }
-        return v;
-    }
     var isPngFormat = function(bin) {
         var sig = String.fromCharCode(0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a);
-        var head = bin.substr(0, 8);
-        if (sig != head) {
-            return false;
+        var head = String.fromCharCode.apply(null, new Uint8Array(bin)).substr(0, 8);
+        if (sig == head) {
+            return true;
         }
-        return true;
+        return false;
     };
     var getPngHeight = function(bin) {
         if (!isPngFormat(bin)) return null;
-        return _getBinValue(bin, 8 + 0x0c, 4);
+        var data = new DataView(bin);
+        return data.getUint32(0x14, false);
     };
     var getPngWidth = function(bin) {
         if (!isPngFormat(bin)) return null;
-        return _getBinValue(bin, 8 + 0x08, 4);
+        var data = new DataView(bin);
+        return data.getUint32(0x10, false);
     };
 
     TalkWindow.prototype = {
@@ -108,16 +101,19 @@
         }
 
         // サンプルスタンプをD&Dした場合の処理
-        var text = event.dataTransfer.getData('text/html');
+        var text = event.dataTransfer.getData('text');
         if (!!text) {
-            var element = $(text);
+            var element = $(createElement('img', {
+                'class': 'sticker',
+                'src': text
+            }));
             // for OSX + ChromeではgetDataで取得できる項目が異なるので補正
-            if(element.length != 1){
-                element = $(element[element.length -1]);
+            if (element.length != 1) {
+                element = $(element[element.length - 1]);
             }
             // クラス名の取得
             var className = element.attr('class');
-            
+
             if (className != 'sticker') {
                 talkWindow.talk('この画像はサンプルじゃないでし!ぎゃおのスタンプをドラッグするでし!');
                 event.preventDefault();
@@ -169,32 +165,34 @@
                 event.preventDefault();
                 return;
             }
+            var width = getPngWidth(bin);
+            var height = getPngHeight(bin);
 
             //　画像の横幅チェック
-            console.log('height : ' + getPngWidth(bin));
-            if (getPngWidth(bin) > 370) {
+            console.log('width : ' + width);
+            if (width > 370) {
                 talkWindow.talk('画像の横幅は最大370pxまででし!');
                 event.preventDefault();
                 return;
             }
 
             // 画像の高さチェック
-            console.log('height : ' + getPngHeight(bin));
-            if (getPngHeight(bin) > 320) {
+            console.log('height : ' + height);
+            if (height > 320) {
                 talkWindow.talk('画像の高さは最大320pxまででし!');
                 event.preventDefault();
                 return;
             }
 
             // 画像サイズ(偶数サイズ)チェック
-            if (getPngWidth(bin) % 2 == 1) {
+            if (width % 2 == 1) {
                 talkWindow.talk('画像の横幅のサイズは偶数じゃないとだめでし!');
                 event.preventDefault();
                 return;
             }
 
             // 画像サイズ(偶数サイズ)チェック
-            if (getPngHeight(bin) % 2 == 1) {
+            if (height % 2 == 1) {
                 talkWindow.talk('画像の高さのサイズは偶数じゃないとだめでし!');
                 event.preventDefault();
                 return;
@@ -206,6 +204,7 @@
                 var img = document.createElement('img');
                 img.setAttribute('class', 'sticker');
                 img.src = bin;
+                img.width = width;
                 talkWindow.talk('こんな感じに表示されるでしー。');
 
                 createSelfSticker($(img));
@@ -217,7 +216,7 @@
             return;
         };
         // バイナリ形式で取得
-        reader.readAsBinaryString(f);
+        reader.readAsArrayBuffer(f);
         //}
         event.preventDefault();
         return;
@@ -242,14 +241,8 @@
             talkWindow.talk('このブラウザだと動作しないでし!<a href="https://www.google.co.jp/chrome/">ここから最新のブラウザをダウンロードするでし!</a>');
             return;
         }
-        // IE11以下(D&D未対応)の場合
-        var ua = navigator.userAgent;
-        if (ua.match(/MSIE/) || ua.match(/Trident/)) {
-            talkWindow.talk('このブラウザだと動作しないでし!<a href="https://www.google.co.jp/chrome/">ここから最新のブラウザをダウンロードするでし!</a>');
-            return;
-        }
 
         document.getElementById("drop").addEventListener("drop", onDrop, false);
-        talkWindow.talk('スタンピ画像をドラッグ&ドロップで貼り付けるでし!');
+        talkWindow.talk('スタンプ画像をドラッグ&ドロップで貼り付けるでし!');
     });
 })();
