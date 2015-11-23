@@ -397,8 +397,14 @@ div.arrow-answer:after {
     background-color: rgba(214, 224, 226, 0.2);
 }
 
-.card.hovercard .cardheader {
+.card.hovercard .cardheader-autumn {
     background: url("../img/autumn.jpg");
+    background-size: cover;
+    height: 135px;
+}
+
+.card.hovercard .cardheader-winter {
+    background: url("../img/winter.jpg");
     background-size: cover;
     height: 135px;
 }
@@ -468,39 +474,53 @@ div.arrow-answer:after {
 
 
 /* 注意書き */
+
 .attention {
-    margin : 20px;
-    padding : 20px;
+    margin: 20px;
+    padding: 20px;
     border-radius: 5px;
     position: relative;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
     background-color: rgba(214, 224, 226, 0.2);
 }
 
+.attention h2 {
+    color: #a4b3cd;
+    font-size: 15px;
+}
+
+.attention li {
+    line-height: 16px;
+}
+
 .attention p {
-    text-align: left;
     font-size: 15px;
 }
 
 
 /* ソーシャルボタン */
 
-ul.share-buttons{
-  list-style: none;
-  padding: 0;
+ul.share-buttons {
+    list-style: none;
+    padding: 0;
 }
 
-ul.share-buttons li{
-  display: inline;
+ul.share-buttons li {
+    display: inline;
 }
 
-ul.share-buttons img{
-  width: 32px;
+ul.share-buttons img {
+    width: 32px;
 }
+
 
 /* ヘッダナビ */
 
-.navbar-inverse{
+.navbar-inverse {
     background-color: #2b3442;
+}
+
+.thumbnail {
+    display : none;
 }

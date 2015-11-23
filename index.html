@@ -6,12 +6,12 @@
     <title>LINE クリエイターズスタンプ　チェッカー</title>
     <link href="./css/bootstrap.min.css?1" rel="stylesheet">
     <link href="./css/site.css?1" rel="stylesheet">
-    <link href="./css/default.css?1" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <meta name="description" content="LINEの自作スタンプがスマートフォンでどのように表示されるのか簡単にチェックできるウェブサービスです。スタンプ画像をドラッグアンドドロップで貼り付けるだけで簡単チェック。" />
 </head>
 
 <body class="device-preview-page ">
+    <img rel='image_src' src="img/thumbnail.jpg" class="thumbnail" />
     <div class="fork-me">
         <a href="https://github.com/dorako321/line-sticker-previewer">
             <img src="./img/fork-me.png" />
@@ -32,13 +32,13 @@
                 <div class="navbar-form navbar-right">
                     <ul class="share-buttons">
                         <li>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fline.9x4.net%2F&t=LINE%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC" title="Share on Facebook" target="_blank"><img src="img/social/Facebook.svg"></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fline.9x4.net%2F%3Fv%3D1&t=LINE%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC" title="Share on Facebook" target="_blank"><img src="img/social/Facebook.svg"></a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fline.9x4.net%2F&text=LINE%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC:%20http%3A%2F%2Fline.9x4.net%2F" target="_blank" title="Tweet"><img src="img/social/Twitter.svg"></a>
+                            <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fline.9x4.net%2F%3Fv%3D1&text=LINE%E3%82%AF%E3%83%AA%E3%82%A8%E3%82%A4%E3%82%BF%E3%83%BC%E3%82%BA%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%97%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC:%20http%3A%2F%2Fline.9x4.net%2F" target="_blank" title="Tweet"><img src="img/social/Twitter.svg"></a>
                         </li>
                         <li>
-                            <a href="https://plus.google.com/share?url=http%3A%2F%2Fline.9x4.net%2F" target="_blank" title="Share on Google+"><img src="img/social/Google+.svg"></a>
+                            <a href="https://plus.google.com/share?url=http%3A%2F%2Fline.9x4.net%2F%3Fv%3DGGTS" target="_blank" title="Share on Google+"><img src="img/social/Google+.svg"></a>
                         </li>
                     </ul>
                     <div style="margin-right:200px;"></div>
@@ -86,17 +86,16 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-3">
                     <div class="card hovercard">
-                        <div class="cardheader">
+                        <div class="cardheader cardheader-autumn">
                         </div>
                         <div class="avatar">
                             <img alt="" src="img/yamada-d.jpg">
                         </div>
                         <div class="info">
                             <div class="title">
-                                <a target="_blank" href="http://yamada.daiji.ro/blog">YAMADA Daijiro</a>
+                                <a target="_blank" href="http://yamada.daiji.ro/blog">Daijiro.Y</a>
                             </div>
                             <div class="desc">Curious developer</div>
-                            <div class="desc">Passionate designer</div>
                             <div class="desc">Tech geek</div>
                         </div>
                         <div class="bottom">
@@ -115,9 +114,48 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-9 col-sm-9">
+                <div class="col-lg-3 col-sm-3">
+                    <div class="card hovercard">
+                        <div class="cardheader cardheader-winter">
+                        </div>
+                        <div class="avatar">
+                            <img alt="" src="img/katafuchi-s.jpg">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a target="_blank" href="http://reiji1020.hatenablog.com/">Saya.K</a>
+                            </div>
+                            <div class="desc">Passionate sticker designer</div>
+                            <div class="desc">Tech geek</div>
+                        </div>
+                        <div class="bottom">
+                            <a class="btn btn-info btn-sm btn-circle" href="https://twitter.com/reiji1020">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm btn-circle" rel="publisher" href="https://plus.google.com/115168677834778111221/about">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a class="btn btn-primary btn-sm btn-circle" rel="publisher" href="https://www.facebook.com/saya.katafuchi">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="btn btn-default btn-sm btn-circle" rel="publisher" href="https://github.com/reiji1020">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6">
                     <div class="attention">
-                        <p>このサイトは非公式です。プレビュー結果について信頼性を保障するものではありません。詳しくは<a href="https://creator.line.me/ja/guideline/">クリエイターズスタンプの公式ガイドライン</a>をご参照ください。サンプルのスタンプは<a href="http://reiji1020.hatenablog.com/">@reiji1020</a>さんと共同制作の<a href="https://store.line.me/stickershop/product/1183159/ja">「ぎゃおちゃんゆるゆるすたんぷ」</a>です。とってもゆるかわなスタンプなので使ってみてくださいませ。</p>
+                        <p>このサイトは非公式です。プレビュー結果について信頼性を保障するものではありません。詳しくは<a href="https://creator.line.me/ja/guideline/">クリエイターズスタンプの公式ガイドライン</a>をご参照ください。サンプルのスタンプは<a href="http://reiji1020.hatenablog.com/">@reiji1020</a>さんの<a href="https://store.line.me/stickershop/product/1183159/ja">「ぎゃおちゃんゆるゆるすたんぷ」</a>です。とってもゆるかわなスタンプなので使ってみてください。
+                            <a href="http://gyao-chan.net/">ぎゃおちゃん公式サイトはこちら</a>。</p>
+                            <p>その他、<a href="https://docs.google.com/forms/d/1knfqv_z7xTc9kz1dZFicwTptoOGFJcz5OMsS_ptwAGM/viewform">お問い合わせについてはこちらのフォームからお願いします。</a></p>
+                    </div>
+                    <div class="attention">
+                        <h2>更新履歴</h2>
+                        <ul>
+                            <li>2015/11/22 α版公開</li>
+                            <li>2015/11/23 β版公開</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -128,6 +166,7 @@
     </audio>
     <script>
     </script>
+    <link href="css/default.css?1" rel="stylesheet">
     <script src="js/jquery-2.1.4.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/default.js"></script>
